@@ -6,3 +6,5 @@
 """
 
 
+def my_funcion(*args, func_type)
+

@@ -4,11 +4,10 @@
 """
 
 
-def my_format(name):
-    result_string = f"Hello, {name}"
-    return result_string
+def my_function():
+    for name in my_names:
+        print(f"Hello, {name}")
 
 
-my_list = ["Olga", "Alex", "Dima", "Roma", "Denis"]
-for name in my_list:
-    print(my_format(name))
+my_names = ["Alex", "Victor", "Roma", "Maria", "Slava"]
+print(my_function())
