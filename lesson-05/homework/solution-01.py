@@ -9,13 +9,17 @@
 # Что-то не так с if. Не могу сделать чтобы не добавлялся текст в случае None
 #
 
+
 def three_args(*args):
     arguments = []    #добавим сюда аргументы, если они соответсвтуют условию
-    for i in range(len(args)):
-        if args[i] != None:
-            arguments.append(f"var{i+1} = {args[i]}")
-    arguments2 = ", ".join(arguments)    #склеим список для вывода
-    print(f"Переданы аргументы: {arguments2}")
+    if var1.isdigit():
+        arguments.append(f"var1 = {var1}")
+    if var2.isdigit():
+        arguments.append(f"var2 = {var2}")
+    if var3.isdigit():
+        arguments.append(f"var3 = {var3}")
+    arguments_print = ", ".join(arguments)    #склеил для вывода
+    print(f"Переданы аргументы: {arguments_print}")
 
 
 var1 = input()
