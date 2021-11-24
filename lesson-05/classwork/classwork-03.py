@@ -25,8 +25,8 @@ func_type = input("Введите\n"
                   "min - если хотите вывести минимальное значение из списка: ")
 
 if func_type == "max":
-    my_funcion_max(my_list, func_type="max")
+    my_funcion_max(*my_list, func_type="max")
 if func_type == "min":
-    my_funcion_min(my_list, func_type="min")
+    my_funcion_min(*my_list, func_type="min")
 if func_type == "list":
-    my_funcion_list(my_list, func_type="list")
+    my_funcion_list(*my_list, func_type="list")
