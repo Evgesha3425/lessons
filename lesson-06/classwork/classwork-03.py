@@ -33,10 +33,8 @@ def pull_the_card(d, s):
     print(denomination, suit)
 
 
-cards_denomination = {"6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
-                      "J": 2, "D": 3, "K": 4, "A": 11}    #номинал карт
-card_suit = ["Hearts", "Diamonds", "Clubs", "Spades"]    #масть карт
-
-
 if __name__ == "__main__":
+    cards_denomination = {"6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
+                          "J": 2, "D": 3, "K": 4, "A": 11}  # номинал карт
+    card_suit = ["Hearts", "Diamonds", "Clubs", "Spades"]  # масть карт
     pull_the_card(cards_denomination, card_suit)
