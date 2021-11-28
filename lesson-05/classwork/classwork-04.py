@@ -4,6 +4,7 @@
 Например, передаем 2, на выходе получаем "Winter".
 """
 
+
 def month_to_season(month):
     season = ""
     if month == '12' or month == '1' or month == '2':
@@ -15,6 +16,7 @@ def month_to_season(month):
     if month == '9' or month == '10' or month == '11':
         season = "autumn"
     return season
+
 
 month = input("Введите номер месяца: ")
 print(month_to_season(month))
