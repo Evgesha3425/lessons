@@ -4,7 +4,7 @@ CSV файла, где на каждой строке пары слов вида
 """
 
 
-#ЧТО-то НЕ ПОЛУЧАЕТСЯ
+
 
 import csv
 
@@ -31,5 +31,5 @@ def load_dictionary():
 if __name__ == "__main__":
     dictionary = load_dictionary()
 
-    print(translate_en_to_ru(dictionary, "sun"))
+    print(translate_en_to_ru(dictionary, "Sun"))
     print(translate_ru_to_en(dictionary, "Луна"))

@@ -27,7 +27,7 @@ def number_of_desk(a, b, c):
 
 
 if __name__ == "__main__":
-    number_of_desk(16, 18, 22)
+    number_of_desk(19, 19, 19)
 
 
 
