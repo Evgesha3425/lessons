@@ -1,33 +1,43 @@
-
 """
 В школе решили набрать три новых класса по программированию.
-Так как занятия по у них проходят в одно и то же время, было решено выделить кабинет
-для каждого класса и купить в них новые парты. За каждой партой может сидеть не больше
-двух учеников. Известно количество учащихся в каждом из трёх классов. Сколько всего нужно
-закупить парт чтобы их хватило на всех учеников? Программа получает на вход три
-натуральных числа: количество учащихся в каждом из трех классов.
+Так как занятия по у них проходят в одно и то же время, было решено выделить кабинет для каждого класса и купить в
+них новые парты.
+За каждой партой может сидеть не больше двух учеников. Известно количество учащихся в каждом из трёх классов.
+Сколько всего нужно закупить парт чтобы их хватило на всех учеников? Программа получает на вход три натуральных числа:
+количество учащихся в каждом из трех классов.
 """
 
-# Первый способ почему-то не получается, пришлось по-старинке
-
-"""
-from functools import reduce
-students = [15, 18, 22]
-desks = reduce(lambda a,b,c: (a+b+c)//2, students)
-print(desks)
-"""
+#from manti-by
 
 
-def number_of_desk(a, b, c):
-    result = (a + b + c)
-    if result % 2 != 0:
-        print((result // 2) + 1)
-    else:
-        print(result // 2)
+import math
+import random
+
+
+def get_tables_count(students_in_a_class: list) -> list:
+    # Using map function calculate parts count
+    # we should buy for each class and round this value to the next
+    return list(map(lambda x: math.ceil(x / 2), students_in_a_class))
+
+
+def main():
+    """
+    Main program function to get user's input and return result
+    """
+
+    # Generate test data
+    students_in_a_class = [
+        random.randint(10, 50),
+        random.randint(10, 50),
+        random.randint(10, 50),
+    ]
+
+    class_1, class_2, class_3 = get_tables_count(students_in_a_class)
+
+    print(f"Class #1 students = {students_in_a_class[0]}, tables = {class_1}")
+    print(f"Class #2 students = {students_in_a_class[1]}, tables = {class_2}")
+    print(f"Class #3 students = {students_in_a_class[2]}, tables = {class_3}")
 
 
 if __name__ == "__main__":
-    number_of_desk(19, 19, 19)
-
-
-
+    main()

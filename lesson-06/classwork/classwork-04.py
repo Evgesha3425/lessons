@@ -1,53 +1,61 @@
 """
 Использую функцию из предыдущей задачи, написать программу игру Блэкджек,
-т.е. реализовать цикл в котором на каждом ходу у игрока спрашивается,
-достать ли следующую карту, в случае положительного ответа  - вытягивать случайную карту.
+т.е. реализовать цикл в котором на каждом ходу у игрока спрашивается, достать ли следующую карту, в случае
+положительного ответа  - вытягивать случайную карту.
 Игра заканчивается если игрок отказывается брать карту, либо сумма его карт больше 21-го.
-
 """
 
-# Не получилось
+"from manti-by"
 
 
 import random
 
 
-def pull_the_card(d, s):
-    heart_den = {}  # колода черви
-    diamonds_den = {}  # колода бубны
-    clubs_den = {}  # колода трефы
-    spades_den = {}  # колода пики
-    deck_of_cards = [heart_den, diamonds_den, clubs_den, spades_den]
-    card_random = random.choice(deck_of_cards)  # засунули в список чтобы случайным образом доставать карту
+def get_card(used_cards):
+    card_suit_list = ["H", "D", "C", "S"]
+    card_list = ["6", "7", "8", "9", "10", "J", "D", "K", "A"]
+    while True:
+        # Generate random suit
+        index = random.randint(0, len(card_suit_list) - 1)
+        card_suit = card_suit_list[index]
 
-    number = 0
-    for i in range(4):  # распихиваем наши карты по словарям
-        for denomination in cards_denomination:
-            if i == 0:
-                heart_den[denomination] = [card_suit[i]]
-            if i == 1:
-                diamonds_den[denomination] = [card_suit[i]]
-            if i == 2:
-                clubs_den[denomination] = [card_suit[i]]
-            if i == 3:
-                spades_den[denomination] = [card_suit[i]]
+        # Generate random suit
+        index = random.randint(0, len(card_list) - 1)
+        card = card_list[index]
 
-    random.choice(list(card_random.items()))
-    return d[random.choice(list(card_random.items()))[0]]
+        current = f"{card_suit}-{card}"
+        if current not in used_cards:
+            return current
 
 
+def get_card_sum(used_cards):
+    card_values = {
+        "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 2, "D": 3, "K": 4, "A": 11
+    }
+    card_sum = 0
+    for card in used_cards:
+        key = card.split("-")[-1]
+        card_sum += card_values[key]
+    return card_sum
 
 
 if __name__ == "__main__":
-    cards_denomination = {"6": 6, "7": 7, "8": 8, "9": 9, "10": 10,
-                          "J": 2, "D": 3, "K": 4, "A": 11}  # номинал карт
-    card_suit = ["Hearts", "Diamonds", "Clubs", "Spades"]  # масть карт
-    pull_the_card(cards_denomination, card_suit)
+    cards = []
+    while True:
+        new_card = get_card(cards)
+        cards.append(new_card)
+        current_sum = get_card_sum(cards)
+        print("Your cards:", cards)
+        print("Current sum:", current_sum)
 
+        if current_sum > 21:
+            print("You've lost, game over.")
+            break
 
-sum = 0
-my_ask = input("Будешь тянуть карту? (yes/no): ")
-if my_ask == "yes":
-    sum += pull_the_card(cards_denomination, card_suit)
+        if current_sum == 21:
+            print("You've almost won!")
+            break
 
-
+        choice = input("Do you want ot get the next card [Y/N]:")
+        if choice == "N":
+            break
