@@ -7,7 +7,7 @@
 
 
 def training_day(X: float, Y: float) -> int:
-    day = 0
+    day = 1
     while Y < X:
         day += 1
         Y = Y * 1.1
