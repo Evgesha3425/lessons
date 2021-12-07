@@ -15,24 +15,19 @@ class Car:
 
     # методы
     def increase_speed(self):
-        self.speed_increase = self.speed + 5
-        print(f"increase speed {self.speed_increase}")
+        self.speed += 5
 
     def reduce_speed(self):
-        self.speed_reduce = self.speed - 5
-        print(f"reduce speed {self.speed_reduce}")
+        self.speed -= 5
 
     def stop(self):
-        self.speed_stop = 0
-        print(f"stop {self.speed_stop}")
+        self.speed = 0
 
     def current_speed(self):
-        self.speed_current = self.speed
-        print(f"current speed {self.speed_current}")
+        print(f"Your speed: {self.speed} km/h")
 
     def reverse(self):
-        self.speed_reverse = self.speed * (-1)
-        print(f"reverse -{self.speed}")
+        self.speed *= -1
 
 
 if __name__ == "__main__":
