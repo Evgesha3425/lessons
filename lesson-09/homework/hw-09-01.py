@@ -31,11 +31,12 @@ class Car:
         print(f"current speed {self.speed_current}")
 
     def reverse(self):
+        self.speed_reverse = self.speed * (-1)
         print(f"reverse -{self.speed}")
 
 
 if __name__ == "__main__":
-    my_car = Car("Toyota", "Camry", 2017, 30)
+    my_car = Car("Toyota", "Camry", 2017, 0)
 
     my_car.increase_speed()
     my_car.reduce_speed()
