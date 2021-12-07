@@ -29,6 +29,8 @@ class Dog:
 if __name__ == "__main__":
     dog_bob = Dog(100, 100, "Bob", 10)
     dog_bob.jump()
+    dog_bob.run()
+    dog_bob.bark()
     dog_bob.change_name("William")
 
     #вызов атрибутов(свойств)
