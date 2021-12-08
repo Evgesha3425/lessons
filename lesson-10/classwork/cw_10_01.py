@@ -3,12 +3,17 @@
 методы сравнения (==, !=, >=, <=, <, >).
 """
 
+from __future__ import annotations
+
 
 class MyTime:
     def __init__(self, hours: int, minutes: int, seconds: int):
         self.hours = hours
         self.minutes = minutes
         self.seconds = seconds
+
+    def __str__(self):
+        return f"{self.hours}:{self.minutes}:{self.seconds}"
 
     def __eq__(self, other) -> bool:
         return (
@@ -17,27 +22,27 @@ class MyTime:
                 self.seconds == other.seconds
                 )
 
-    def __ne__(self, other) -> bool:
+    def __ne__(self, other: MyTime) -> bool:
         return not self.__eq__(other)
 
-    def __ge__(self, other) -> bool:
+    def __ge__(self, other: MyTime) -> bool:
         return (
                 self.hours >= other.hours or
                 self.minutes >= other.minutes or
                 self.seconds >= other.seconds
                 )
 
-    def __le__(self, other) -> bool:
+    def __le__(self, other: MyTime) -> bool:
         return not self.__ge__()
 
-    def __gt__(self, other) -> bool:
+    def __gt__(self, other: MyTime) -> bool:
         return (
                 self.hours > other.hours or
                 self.minutes > other.minutes or
                 self.seconds > other.seconds
         )
 
-    def __lt__(self, other) -> bool:
+    def __lt__(self, other: MyTime) -> bool:
         return not self.__gt__()
 
 
