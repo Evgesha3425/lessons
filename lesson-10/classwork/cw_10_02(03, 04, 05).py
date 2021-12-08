@@ -59,7 +59,10 @@ if __name__ == "__main__":
     my_time_1 = MyTimeMath(2, 50, 40)
     my_time_2 = MyTimeMath(1, 32, 27)
 
-    print(my_time_1 + my_time_2)
-    print(my_time_1 - my_time_2)
-    print(my_time_2 - my_time_1)
-    print(my_time_1 * 2)
+    my_time_3 = my_time_1 - my_time_2 + MyTimeMath(7, 45, 0)
+    print(my_time_3)
+
+    # print(my_time_1 + my_time_2)
+    # #print(my_time_1 - my_time_2)
+    # print(my_time_2 - my_time_1)
+    # print(my_time_1 * 2)

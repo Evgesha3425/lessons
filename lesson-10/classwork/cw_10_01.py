@@ -13,7 +13,7 @@ class MyTime:
         self.seconds = seconds
 
     def __str__(self):
-        return f"{self.hours}:{self.minutes}:{self.seconds}"
+        return f"{self.hours:02d}:{self.minutes:02d}:{self.seconds:02d}"
 
     def __eq__(self, other) -> bool:
         return (
