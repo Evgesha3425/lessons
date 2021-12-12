@@ -2,16 +2,16 @@ class Warrior:
     #перезаписал метод
     def __init__(self, stamina, health = 50):
         #поля
-        self.__health = health
+        self.health = health
         self.stamina = stamina
 
     def _set_health(self, points):
-        self.__health += points
+        self.health += points
 
     def introduces(self):
         print("-----------")
         print(f"Class: {self.__class__.__name__}")
-        print(f"\nHealth: {self.__health}")
+        print(f"\nHealth: {self.health}")
         print(f"\nStamina: {self.stamina}")
 
     def attacks(self, target):
@@ -32,7 +32,7 @@ class Mage:
     def introduces(self):
         print("-----------")
         print(f"Class: {self.__class__.__name__}")
-        print(f"\nHealth: {self.__health}")
+        print(f"\nHealth: {self.health}")
         print(f"\nMana: {self.mana}")
 
 
@@ -40,4 +40,4 @@ class Mage:
 
 unit1.attacks(unit2)
 mage = Mage(40)
-print(unit2.__health)
+print(unit2.health)
