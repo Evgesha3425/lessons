@@ -50,3 +50,4 @@ if __name__ == "__main__":
     my_datetime_2 = MyDateTime(1, 32, 27, 2, 22, 2021)
 
     print(my_datetime_1 + my_datetime_2)
+    print(my_datetime_1 * 2)
