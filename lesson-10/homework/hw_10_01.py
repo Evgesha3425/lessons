@@ -42,6 +42,7 @@ class Square(Figure):
 
 class Circle(Figure):
     def __init__(self, radius):
+        super().__init__()
         self.radius = radius
 
     def area_circle(self):
@@ -60,7 +61,7 @@ class Triangle(Figure):
         b = math.sqrt(((self.x2 - self.x3) ** 2) + (self.y2 - self.y3) ** 2)
         c = math.sqrt(((self.x1 - self.x3) ** 2) + (self.y1 - self.y3) ** 2)
         p = (a + b + c) / 2
-        return math.sqrt(p * (p-a) * (p-b) * (p-c))
+        return math.sqrt(p * (p - a) * (p - b) * (p - c))
 
     def perimeter_triangle(self):
         a = math.sqrt(((self.x1 - self.x2) ** 2) + (self.y1 - self.y2) ** 2)
@@ -68,7 +69,3 @@ class Triangle(Figure):
         c = math.sqrt(((self.x1 - self.x3) ** 2) + (self.y1 - self.y3) ** 2)
         p = (a + b + c)
         return p
-
-
-
-
