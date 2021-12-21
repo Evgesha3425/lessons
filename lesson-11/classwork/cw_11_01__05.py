@@ -63,13 +63,36 @@ def search_user(query: str):
         return cursor.fetchone()
 
 
+def search_user_age(age: int):
+    with sqlite3.connect("db.sqlite3") as session:
+        cursor = session.cursor()
+        cursor.execute(
+            """
+            SELECT firstname, lastname, age 
+            FROM user 
+            WHERE age = ?
+            """,
+            (age,),
+        )
+        session.commit()
+        return cursor.fetchall()
+
+
 if __name__ == "__main__":
-    """
+    #Поиск в таблице по возрасту
+    result = search_user_age(64)
+    print(result)
+"""
+    #Создание в таблице новых юзеров
     create_user("Evgeniy", "Eidelman", "yauheni.skills@gmail.com", "Pass", 24)
     create_user("Anatoliy", "Eidelman", "aie@tut.by", "MyPass", 64)
     create_user("Artsiom", "Martunenka", "amartynenka@kan-therm.com", "MyNewPass", 24)
     create_user("Anna", "Kolos", "kolos.ann@mail.ru", "PassWord", 25)
     create_user("Kirill", "Barankevich", "kubik12@gmail.com", "NewPassword", 23)
-    """
+
+    #Поиск в таблице по имени
     result = search_user("Anna")
     print(result)
+"""
+
+
