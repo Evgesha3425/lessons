@@ -59,19 +59,25 @@ if __name__ == "__main__":
     session = Session()
 
     # Создание нового пользователя
-    #client = Client(name="Alexandr", email="manti.by@gmail.com")
-    #session.add(client)
+    client = Client(name="Alexandr", email="manti.by@gmail.com")
+    session.add(client)
 
     # Создание нового товара
-    #product = Product(name="Ball", price=25)
+    product = Product(name="book", price=80)
     #product = Product(name="milk", price=10)
-    #session.add(product)
-
-    # Создание новой покупки
-    purchases = Purchases(price=25, time=datetime.utcnow)
-    session.add(purchases)
+    session.add(product)
 
     # Отправка данных в БД
     session.commit()
+
+    # Создание новой покупки
+    product = Purchases(client_id=client.id, product_id=product.id, count=1)
+    session.add(product)
+
+    # Отправка данных в БД
+    session.commit()
+
+
+
 
 
