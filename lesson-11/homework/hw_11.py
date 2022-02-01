@@ -1,13 +1,15 @@
 import sqlite3
+from typing import List, Any
 
+DB_PRODUCTS = "db.sqlite3"
 
 # Создаем таблицу. Колонки таблицы указаны после CREAT TABLE products( ... )
 def creat_table_products():
-    with sqlite3.connect("db.sqlite3") as session:
+    with sqlite3.connect(DB_PRODUCTS) as session:
         cursor = session.cursor()
         cursor.execute(
             """
-            CREATE TABLE products (
+            CREATE TABLE IF NOT EXISTS products (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name VARCHAR,
                 price INTEGER,
@@ -21,7 +23,7 @@ def creat_table_products():
 
 # Запуская ф-ию добавляем новый товар в таблицу
 def add_product(name: str, price: int, amount: int, comment: str):
-    with sqlite3.connect("db.sqlite3") as session:
+    with sqlite3.connect(DB_PRODUCTS) as session:
         cursor = session.cursor()
         cursor.execute(
             """
@@ -34,7 +36,7 @@ def add_product(name: str, price: int, amount: int, comment: str):
 
 
 def show_products():
-    with sqlite3.connect("db.sqlite3") as session:
+    with sqlite3.connect(DB_PRODUCTS) as session:
         cursor = session.cursor()
         cursor.execute(
             """
@@ -47,7 +49,7 @@ def show_products():
 
 
 def update_amount():
-    with sqlite3.connect("db.sqlite3") as session:
+    with sqlite3.connect(DB_PRODUCTS) as session:
         cursor = session.cursor()
         cursor.execute(
             """
@@ -60,14 +62,15 @@ def update_amount():
         return cursor.fetchone()
 
 
-def delete_product():
-    with sqlite3.connect("db.sqlite3") as session:
+def delete_product(id):
+    with sqlite3.connect(DB_PRODUCTS) as session:
         cursor = session.cursor()
         cursor.execute(
             """
             DELETE FROM products
-            WHERE id = 6;
+            WHERE id = ?;
             """,
+            (id,),
         )
         session.commit()
         return cursor.fetchone()
@@ -75,7 +78,7 @@ def delete_product():
 
 if __name__ == "__main__":
     # Создаем таблицу products
-    # creat_table_products()
+    creat_table_products()
 
     # Указываем сразу все аргументы, имеющиеся в функции. Сколько раз запустим, столько
     # раз и создаться новый товар с этими параметрами
@@ -94,4 +97,4 @@ if __name__ == "__main__":
     # update_amount()
 
     # Удаляем продукт из таблицы по id
-     delete_product()
+    # delete_product(4)
